@@ -1,20 +1,13 @@
-const express = require("express");
-
-const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// Simple "I'm alive" check
-app.get("/", (req, res) => {
-  res.status(200).send("Ninja AI Receptionist is running");
-});
-
-// SMS webhook (Twilio will call this later)
-app.post("/sms", (req, res) => {
-  res.status(200).send("OK");
-});
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+{
+  "name": "ninja-ai-receptionist",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "twilio": "^5.3.1"
+  }
+}
